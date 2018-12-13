@@ -1,0 +1,95 @@
+input[type=text] {
+  width: 130px;
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* /* When the input field gets focus, change its width to 100% */
+
+/* input[type=text]:focus {
+  width: 100%;
+} */
+
+.jumbo {
+  height: 150px;
+  background-color: black;
+  color: white;
+}
+
+.affix {
+  top: 0;
+  position: fixed;
+}
+
+.dropdown-item:hover {
+  background-color: #666666 !important;
+  color: white;
+}
+
+.form-control {
+  font-family: "FontAwesome"
+}
+
+.table {
+  white-space: nowrap
+}
+
+tbody {
+  white-space: nowrap;
+  width: 100%;
+}
+
+td {
+  white-space: nowrap;
+}
+
+.page-head {
+  font-family: 'Monoton', cursive;
+  color: #99ff33;
+  font-weight: 500;
+}
+
+.page-head-first-letter {
+  font-family: 'Monoton', cursive;
+  color: #99ff33;
+  font-weight: 500;
+  font-size: 60px;
+  margin-left: 0.8em;
+}
+
+.sub-page-head {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 25px;
+  margin-left: 2em;
+  color: #ff5050;
+}
+
+.font-awesome-icon {
+  font-size: 65px;
+  color: #264d73;
+}
+
+.list-icon {
+  color: #990033;
+}
+
+.modal-header {
+  background-color: green;
+}
+
+.modal-title {
+  color: white;
+}
+
+.sort-icon {
+  color: #99ff33;
+  font-size: 20px;
+}
+
+.category {
+  padding: 10px;
+}
+
+#record-layout {
+  display: none;
+}

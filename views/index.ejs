@@ -1,0 +1,97 @@
+<html ng-app="myApp">
+
+<head>
+    <title>Asset Maintenance</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Monoton" rel="stylesheet">
+    <script src="/js/dashboard.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/css.css">
+</head>
+
+<body>
+    <div ng-controller="AppCtrl" class="well container">
+        <div class="well well-sm jumbo ">
+            <h1 class="page-head"><span class="page-head-first-letter">M</span>aster Asset List</h1>
+            <p class="sub-page-head">Maintain all asset at ease...</p>
+        </div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" data-spy="affix" data-offset-top="150">
+            <a class="navbar-brand" href="#">Asset</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" ng-click="getRecord('home')">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Get record
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" ng-click="getRecord('civil_structure')">
+                            Civil Structure</a>
+                        <a class="dropdown-item" href="#" ng-click="getRecord('electrical')">
+                            Lightning & Electrical</a>
+                        <a class="dropdown-item" href="#" ng-click="getRecord('civil_structure')">
+                            Plumbing</a>
+                        <a class="dropdown-item" href="#" ng-click="getRecord('civil_structure')">
+                            HVAC</a>
+                        <a class="dropdown-item" href="#" ng-click="getRecord('civil_structure')">
+                            F & F</a>
+                        <a class="dropdown-item" href="#" ng-click="getRecord('civil_structure')">
+                            Processing & Packaging</a>
+                        <a class="dropdown-item" href="#" ng-click="getRecord('civil_structure')">
+                            Transportation</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <br>
+        <div ng-if="showAlertSuccess" class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{message}}</strong>
+        </div>
+        <div ng-if="showAlertError" class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{message}}</strong>
+        </div>
+        <div id="dashboard-layout" class="container-fluid">
+            <div class="row d-flex justify-content-center">
+                <div class="category col-lg-4 col-md-6" ng-repeat="category in categories">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas {{categories_css[$index]}} font-awesome-icon"></i>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-outline-success btn-lg" data-toggle="modal"
+                                data-target="#myModal" ng-click="select_template($index+1);">
+                                {{category}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">{{title}}</h4>
+                            <button type="button" class="close" data-dismiss="modal" ng-click="modalClose()">&times;</button>
+                        </div>
+                        <div class="modal-body" id="addFormHere">
+                            <ng-include src="getForm()"></ng-include>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="record-layout">
+            <ng-include src="'/record'"></ng-include>
+        </div>
+    </div>
+</body>
+
+</html>

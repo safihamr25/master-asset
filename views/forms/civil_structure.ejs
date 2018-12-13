@@ -1,0 +1,115 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <div class="container" ng-controller="AppCtrl">
+        <form ng-submit="submitCivilStructure(1)">
+                <div class="input-group">
+                        <span class="input-group-addon"></span><i class="fa fa-envelope"></i></span>
+                        <input class="form-control" type="text" placeholder="Email address">
+                    </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Code</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.code">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Location</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.location">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Sub location</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.sub_location[1]">
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="button" ng-click="increaseRange()">+</button>
+                </div>
+            </div>
+            <div data-ng-repeat="i in range" ng-init="id='sub_location'+i">
+                <div class="input-group mb-3 input-group-default" id="{{id}}">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Sub location</span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="data.sub_location[i]">
+                    <div class="input-group-append" ng-init="id='sub_location'+i">
+                        <button class="btn btn-danger" type="button" ng-click="decreaseRange(id)">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Type of building:</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.type_of_building">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Total area:</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.total_area">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Total Electricity Requirement:</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.total_electricity_requirement">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Total Water Requirement:</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.total_water_requirement">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Commissioned on</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.commissioned_on">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Life</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.life">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Structure type</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.structure_type">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Constructed by</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.constructed_by">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Construction cost</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.construction_cost">
+            </div>
+            <div class="input-group mb-3 input-group-default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Present value</span>
+                </div>
+                <input type="text" class="form-control" ng-model="data.present_value">
+            </div>
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+</body>
+<!--User defined files-->
+<!-- <script src="angularControllers/controller.js"></script> -->
+
+</html>

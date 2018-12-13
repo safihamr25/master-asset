@@ -1,0 +1,41 @@
+<div ng-controller="AppCtrl" class="well container">
+  <div class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th ng-repeat="x in headers">{{x}}&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" ng-click="sort(x)"><i class="fas fa-sort sort-icon"></i></a>
+          </th>
+        </tr>
+        <tr>
+          <th ng-repeat="x in headers">
+            <input type="text" class="form-control" placeholder="&#xf002;" ng-change="filter(x,val)" ng-model="val">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="r in records | orderBy : myOrderBy :reverse | filter : searchValue">
+          <td ng-repeat="x in headers">{{r[x]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {{pager.pages.length}}hhghg{{records.length}}
+  <ul ng-if="pager.pages.length" class="pagination">
+    <li ng-class="{disabled:pager.currentPage === 1}">
+      <a ng-click="setPage(1)">First</a>
+    </li>
+    <li ng-class="{disabled:pager.currentPage === 1}">
+      <a ng-click="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+      <a ng-click="setPage(page)">{{page}}</a>
+    </li>
+    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+      <a ng-click="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+      <a ng-click="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
+</div>
